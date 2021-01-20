@@ -1,3 +1,14 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+hello:
+    path: /hello-world/{name}
+    controller: App\Controller\DefaultController::hello
+
+home:
+    path: /{nimportequoi}
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+    defaults:
+        route: index
+        permanent: true
