@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{# (id, nom, prénom, téléphone) #}
+<br>
+<br>
+<h1>LISTE DES CONTACTS</h1>
+<br>
+<br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for contact in contacts %}
+    <tr>
+        <th scope="row">{{contact.id}}</th>
+        <td>{{contact.nom}}</td>
+        <td>{{contact.prenom}}</td>
+        <td>{{contact.telephone}}</td>
+        <td><button href="" type="button" class="btn btn-success">Afficher</button></td>
+    </tr>
+   {% endfor %}
+
+  </tbody>
+</table>
+{% endblock %}
