@@ -19,16 +19,33 @@
   <body>
   
     {% block navbar %}
-        <nav class="navbar navbar-dark bg-dark">
-            <a href="#" class="p-3 text-light" style="font-size: 25px;">Acceuil</a>
-            <a href="#" class="p-3 text-light" style="font-size: 25px;">Contact</a>
-            <a href="#" class="p-3 text-light" style="font-size: 25px;">Profil</a>
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Hello</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Acceuil</a>
+                        </li>  
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Profil</a>
+                        </li> 
+                         <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                        </li>    
+                    </ul>                
+                </div>
+            </div>
         </nav>
     {% endblock navbar %}
-
-    {% block body %}
-        <h1>Hello Me and Myself</h1>    
-    {% endblock %}
+    <div class="container">
+        {% block body %}
+            <h1>Hello Me and Myself</h1>    
+        {% endblock %}
+    </div>
 
     {% block javascripts %}
 
