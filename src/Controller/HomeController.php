@@ -22,19 +22,19 @@ class HomeController extends AbstractController
                 'telephone' => "0786495705"
             ],
             [
-                'id' => 1,
+                'id' => 2,
                 'nom' => 'Dubois',
                 'prenom' => 'Jean',
                 'telephone' => "0258484957"
             ],
             [
-                'id' => 1,
+                'id' => 3,
                 'nom' => 'Smith',
                 'prenom' => 'Mike',
                 'telephone' => "0781574865"
             ],
             [
-                'id' => 1,
+                'id' => 4,
                 'nom' => 'Lamar',
                 'prenom' => 'Bob',
                 'telephone' => "07654481547"
@@ -49,6 +49,8 @@ class HomeController extends AbstractController
      */
     public function contact()
     {
-        return $this->render('contact.html.twig');
+        return $this->render('contact.html.twig', [
+            // "id" => $id
+        ]);
     }
 }
