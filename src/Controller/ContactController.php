@@ -76,18 +76,16 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="delete")
+     * @Route("/delete/{id}", name="contact-delete")
      */
-    public function delete($id): Response
+    public function delete($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $contact = $this->getDoctrine()->getRepository(Contact::class)->find($id);
-
+        $contact = $entityManager->getRepository(Contact::class)->find($id);
 
         $entityManager->remove($contact);
         $entityManager->flush();
 
-
-        return new Response('<h2>Le contact a été supprimé</h2>');
+        return $this->redirectToRoute('home');
     }
 }

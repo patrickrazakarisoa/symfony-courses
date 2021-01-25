@@ -34,6 +34,7 @@
         <td>
         <a href="{{ path('contact', {id: contact.id}) }}" type="button" class="btn btn-success">Afficher</a>
         <a href="{{ path('contact-edit', {id: contact.id})}} " type="button" class="btn btn-warning">Modifier</a>
+        <a href="{{ path('contact-delete', {id: contact.id})}}" type="button" class="btn btn-danger">Supprimer</a>
         </td>
     </tr>
    {% endfor %}
