@@ -37,7 +37,7 @@ class ContactController extends AbstractController
 
 
     /**
-     * @Route("/add", name="add")
+     * @Route("/add", name="contat-add")
      */
     public function add(): Response
     {
@@ -62,19 +62,18 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/update/{id}", name = "update" )
+     * @Route("/contact/edit/{id}", name = "contact-edit" )
      */
-    // public function update($id): Response
-    // {
-    //     $entityManager = $this->getDoctrine()->getManager();
-    //     $contact = $this->getDoctrine()->getRepository(Contact::class)->find($id);
+    public function edit($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $contact = $entityManager->getRepository(Contact::class)->find($id);
 
-    //     $contact->set();
+        $contact->setTelephone('New Number !');
+        $entityManager->flush();
 
-    //     $entityManager->flush();
-
-    //     return new Response('<h2>Mise à jour effectuée</h2>');
-    // }
+        return $this->redirectToRoute('home');
+    }
 
     /**
      * @Route("/delete/{id}", name="delete")

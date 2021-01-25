@@ -31,7 +31,10 @@
         <td>{{contact.ville}}</td>
         <td>{{contact.age}}</td>
 
-        <td><a href="{{ path('contact', {id: contact.id}) }}" type="button" class="btn btn-success">Afficher</a></td>
+        <td>
+        <a href="{{ path('contact', {id: contact.id}) }}" type="button" class="btn btn-success">Afficher</a>
+        <a href="{{ path('contact-edit', {id: contact.id})}} " type="button" class="btn btn-warning">Modifier</a>
+        </td>
     </tr>
    {% endfor %}
 
