@@ -15,11 +15,26 @@ class ContactController extends AbstractController
      */
     public function home()
     {
+
         $contacts = $this->getDoctrine()->getRepository(Contact::class)->findAll();
         return $this->render('home.html.twig', [
             'contacts' => $contacts
         ]);
     }
+
+
+    /**
+     * @Route("/contact/{id} ", name="contact")
+     */
+    public function contact($id)
+    {
+        $contact = $this->getDoctrine()->getRepository(Contact::class)->find($id);
+        return $this->render('contact.html.twig', [
+            "id" => $id,
+            "contact" => $contact
+        ]);
+    }
+
 
     /**
      * @Route("/add", name="add")
