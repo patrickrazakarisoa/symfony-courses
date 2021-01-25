@@ -15,12 +15,18 @@ class ContactController extends AbstractController
      */
     public function home()
     {
-
-        $contacts = $this->getDoctrine()->getRepository(Contact::class)->findAll();
+        $contacts = $this->getDoctrine()->getRepository(Contact::class)->findByGreaterThan(17);
         return $this->render('home.html.twig', [
-            'contacts' => $contacts
+            'contacts' => $contacts,
         ]);
     }
+    // {
+
+    //     $contacts = $this->getDoctrine()->getRepository(Contact::class)->findAll();
+    //     return $this->render('home.html.twig', [
+    //         'contacts' => $contacts
+    //     ]);
+    // }
 
 
     /**
@@ -76,7 +82,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="contact-delete")
+     * @Route("/contact/delete/{id}", name="contact-delete")
      */
     public function delete($id)
     {

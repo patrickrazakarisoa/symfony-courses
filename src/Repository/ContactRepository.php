@@ -19,6 +19,17 @@ class ContactRepository extends ServiceEntityRepository
         parent::__construct($registry, Contact::class);
     }
 
+    public function findByGreaterThan($age)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.age > :val')
+            ->setParameter('val', $age)
+            ->orderBy('p.age', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Contact[] Returns an array of Contact objects
     //  */
